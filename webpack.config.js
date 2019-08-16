@@ -1,4 +1,15 @@
 const path = require('path')
+const fs = require('fs')
+const nodemonPlugin = require('./scripts/nodemonPlugin')
+
+var nodeModules = {}
+fs.readdirSync('node_modules')
+    .filter(function(x) {
+        return ['.bin'].indexOf(x) === -1;
+    })
+    .forEach(function(mod) {
+        nodeModules[mod] = 'commonjs ' + mod;
+    })
 
 module.exports = {
     entry: {
@@ -10,6 +21,9 @@ module.exports = {
         library: 'MY_BIG_NODE',
         libraryTarget: 'commonjs2'
     },
+    target: 'node', // 告诉 webpack 处理的是 node 代码，
+                    // 这样就不会对 node 的核心模块进行处理和打包
+                    // 否则会把核心模块处理的不好使，而且打包进代码
     watch: true,
     watchOptions: {
         aggregateTimeout: 300,
@@ -37,5 +51,8 @@ module.exports = {
                 ]
             }
         ]
-    }
+    },
+    plugins: [
+        new nodemonPlugin()
+    ]
 }
