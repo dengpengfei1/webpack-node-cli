@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "allowJs": true,
+        "noImplicitAny" : false,
+        "moduleResolution": "node",
+        "lib": ["es2015", "es2016", "es2017", "dom"],
+        "strict": true,
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "removeComments": true
+    },
+    "include": [
+        "./src/*"
+    ],
+    "exclude": [
+        "./node_modules"  
+    ]
+}
