@@ -1,15 +1,5 @@
 const path = require('path')
-const fs = require('fs')
-const nodemonPlugin = require('./scripts/nodemonPlugin')
-
-var nodeModules = {}
-fs.readdirSync('node_modules')
-    .filter(function(x) {
-        return ['.bin'].indexOf(x) === -1;
-    })
-    .forEach(function(mod) {
-        nodeModules[mod] = 'commonjs ' + mod;
-    })
+// const nodemonPlugin = require('./scripts/nodemonPlugin')
 
 module.exports = {
     entry: {
@@ -53,6 +43,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new nodemonPlugin()
+        // new nodemonPlugin()
     ]
 }
