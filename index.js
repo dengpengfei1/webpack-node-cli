@@ -23,7 +23,7 @@ const func = {
       process.exit()
     })
     cp.on('close', () => {
-      const gitignore = fs.readFileSync(path.join(__dirname, '/code/.gitignore'))
+      const gitignore = fs.readFileSync(path.join(__dirname, './gitignore.txt'))
       fs.writeFileSync(path.resolve(process.env.PWD, '.gitignore'), gitignore)
       console.log(chalk.green('复制文件完成！'))
       console.log(chalk.green('开始安装npm包'))
