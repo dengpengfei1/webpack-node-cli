@@ -16,7 +16,7 @@ if (!command) throw new Error(chalk.red('A COMMAND REQUIRED'))
 
 const func = {
   init() {
-    const cp = spawn('cp', ['-r', path.join(__dirname, '/code/'), process.env.PWD])
+    const cp = spawn('cp', ['-r', '-a', path.join(__dirname, '/code/'), process.env.PWD])
     cp.on('error', (err) => {
       console.log(chalk.red(err))
       process.exit()
